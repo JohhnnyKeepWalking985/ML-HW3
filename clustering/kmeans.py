@@ -40,7 +40,7 @@ class KMeansClustering:
             tsne = TSNE(n_components=2, random_state=42)
             X_tsne = tsne.fit_transform(self.data)
             plt.scatter(X_tsne[:, 0], X_tsne[:, 1], c=self.labels, cmap='viridis', alpha=0.6)
-            plt.title("t-SNE Projection of K-Means Clusters (n_clusters={self.n_clusters})")
+            plt.title(f"t-SNE Projection of K-Means Clusters (n_clusters={self.n_clusters})")
             plt.show()
         else:
             plt.scatter(self.data[:, 0], self.data[:, 1], c=self.labels, cmap='viridis', alpha=0.6)
@@ -64,5 +64,4 @@ class KMeansClustering:
 
         df['cluster'] = labels
         df.to_csv(output_file, index=False)
-
         print(f"Inference results saved to {output_file}")
