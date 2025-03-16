@@ -13,11 +13,9 @@ import matplotlib.pyplot as plt
 
 class NeuralNetworkTrainer:
     def __init__(self, config_path, device="cpu"):
-        self.device = torch.device(device)
+        self.device = "cpu"
         self.config = self.load_config(config_path)
 
-        # self.train_data_path = self.config["data"]["train_path"]
-        # self.test_data_path = self.config["data"]["test_path"]
         self.target_column = self.config["data"]["target_column"]
 
         self.hidden_sizes = self.config["model"]["hidden_sizes"]
@@ -28,8 +26,6 @@ class NeuralNetworkTrainer:
         self.batch_size = self.config["model"]["batch_size"]
         self.use_batchnorm = eval(self.config["model"]["use_batchnorm"])
         self.dropout_rate = self.config["model"]["dropout_rate"]
-        # self.model_save_path = self.config["model"]["save_path"]
-        # self.eval_save_path = self.config["evaluation"]["save_path"]
         self.project_dir = Path(config_path).parent.parent.resolve()
         self.train_data_path = self.resolve_path(self.project_dir, self.config['data']['train_path'])
         self.test_data_path = self.resolve_path(self.project_dir, self.config['data']['test_path'])

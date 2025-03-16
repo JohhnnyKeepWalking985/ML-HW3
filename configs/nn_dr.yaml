@@ -1,6 +1,6 @@
 data:
-  train_path: "datasets/cleaned_data/mkt_camp_v1/train.csv"
-  test_path: "datasets/cleaned_data/mkt_camp_v1/test.csv"
+  train_path: "datasets/dr/mkt/rp_train.csv"
+  test_path: "datasets/dr/mkt/rp_test.csv"
   target_column: "Response"
 
 model:
