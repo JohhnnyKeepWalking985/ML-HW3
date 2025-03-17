@@ -1,0 +1,18 @@
+data:
+  train_path: "datasets/dr_cluster/mkt/rp_em_train.csv"
+  test_path: "datasets/dr_cluster/mkt/rp_em_test.csv"
+  target_column: "Response"
+
+model:
+  hidden_sizes: 256
+  num_layers: 3
+  activation: "Sigmoid"
+  learning_rate: 0.001
+  epochs: 20
+  batch_size: 128
+  use_batchnorm: "True"
+  dropout_rate: 0.2
+  save_path: "model_checkpoints/neural_network.pth"
+
+evaluation:
+  save_path: "results/neural_network_results.json"
