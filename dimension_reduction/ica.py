@@ -1,6 +1,7 @@
 import numpy as np
 import joblib
 import pandas as pd
+from scipy.stats import kurtosis
 from sklearn.decomposition import FastICA
 
 class ICADecomposition:
@@ -12,6 +13,7 @@ class ICADecomposition:
         self.data = None
         self.transformed_data = None
         self.reconstruction_error_ = None
+        self.kurtosis = None
 
     def fit(self, X):
         self.df = X
@@ -20,6 +22,7 @@ class ICADecomposition:
 
         reconstructed_data = self.model.inverse_transform(self.transformed_data)
         self.reconstruction_error_ = np.mean((self.data - reconstructed_data) ** 2)
+        self.kurtosis = np.mean(np.abs(kurtosis(self.transformed_data, axis=0)))
 
         return self.transformed_data
 

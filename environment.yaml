@@ -16,4 +16,5 @@ dependencies:
   - ipykernel
   - pyyaml
   - imbalanced-learn
+  - umap-learn
 
